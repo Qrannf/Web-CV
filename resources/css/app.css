@@ -3,33 +3,73 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========================================
-ANIMASI KUSTOM ANDA
-========================================
+/*
+=================================================
+ KEYFRAMES ANIMASI HALAMAN MASUK (POP, CASCADE, FADE)
+=================================================
 */
 
-/* 1. ANIMASI MASUK HALAMAN (fade + zoom) */
-@keyframes fadeZoomIn {
+/* 1. Animasi POP-IN (untuk Foto Profil) */
+@keyframes popIn {
   0% {
     opacity: 0;
-    transform: scale(0.95) translateY(20px);
+    transform: scale(0.5);
   }
   100% {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: scale(1);
+  }
+}
+.animate-pop-in {
+  animation: popIn 0.5s ease-out forwards;
+}
+
+/* 2. Animasi CASCADE-IN "NGETIK" (untuk Nama) */
+/* Kelas .animate-cascade-in adalah pemicu di JS */
+.animate-cascade-in span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px) scale(0.8);
+  /* Animasi per-huruf */
+  animation: cascadeInChar 0.4s ease-out forwards;
+}
+@keyframes cascadeInChar {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
-/* class animasi */
-.fade-zoom-in {
-  animation: fadeZoomIn 0.9s ease-out forwards;
+/* 3. Animasi FADE-UP (untuk Info Kontak & Scroll) */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
 }
 
 
-/* 2. ANIMASI "SCROLL" NAIK-TURUN (dari app.blade.php) */
-@keyframes bounce {
+/*
+=================================================
+ KEYFRAMES LAIN (BOUNCE, DLL)
+=================================================
+*/
+
+/* Animasi Bounce halus untuk Indikator Scroll */
+@keyframes bounce-slow {
   0%, 100% {
-    transform: translateY(-15%);
+    transform: translateY(-25%);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
   50% {
@@ -37,47 +77,13 @@ ANIMASI KUSTOM ANDA
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
-
 .animate-bounce-slow {
-  animation: bounce 2s infinite;
+  animation: bounce-slow 2s infinite;
 }
 
 
-/* 3. ANIMASI "TEXT SHINE" (Looping) UNTUK NAMA HERO */
-@keyframes textShineLoop {
-  0% {
-    background-position: -100% center; /* Mulai dari kiri */
-  }
-  30% {
-    background-position: 100% center; /* Animasi selesai (dalam 30% durasi total) */
-  }
-  100% {
-    background-position: 100% center; /* Tahan posisi akhir (ini adalah jeda 70%) */
-  }
-}
-
-/* Kelas .animate-text-shine (HANYA SATU) */
-.animate-text-shine {
-  /* Terapkan gradien highlight */
-  background: linear-gradient(
-    90deg,
-    #e9ff00, /* Warna asli Anda */
-    #ffffff,  /* Warna highlight (putih) */
-    #e9ff00   /* Warna asli Anda */
-  );
-  background-size: 200% auto;
-  
-  /* Klip gradien agar sebatas bentuk teks */
-  background-clip: text;
-  -webkit-background-clip: text;
-  
-  /* Buat warna teks asli jadi transparan */
-  -webkit-text-fill-color: transparent; 
-  
-  /* Atur animasi untuk looping */
-  animation-name: textShineLoop;
-  animation-duration: 8s; /* Total durasi 1 loop (8 detik) */
-  animation-timing-function: linear;
-  animation-delay: 0.5s; /* Jeda awal saat halaman dimuat */
-  animation-iteration-count: infinite; /* Kunci untuk looping */
+/* [BARU] KEYFRAMES UNTUK MARQUEE FOOTER */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
