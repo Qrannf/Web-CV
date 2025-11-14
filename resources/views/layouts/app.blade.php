@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $biodata->nama ?? 'Portfolio' }}</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -47,15 +47,15 @@
     <div id="overlayMenu" 
          class="fixed inset-0 bg-gray-950/95 flex flex-col justify-center pl-16 space-y-4 text-4xl font-extrabold uppercase tracking-wide transform -translate-x-full transition-transform duration-500 z-40">
         
-        {{-- Link Menu --}}
-        <a href="#hero" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Home</a>
-        <a href="#about" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Tentang</a>
-        <a href="#pendidikan" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Pendidikan</a>
-        <a href="#pengalaman" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Pengalaman</a>
-        <a href="#keahlian" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Keahlian</a>
+        <!-- [PERUBAHAN] Tautan menu diubah ke URL absolut -->
+        <a href="{{ url('/') }}" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Home</a>
+        <a href="{{ url('/#about') }}" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Tentang</a>
+        <a href="{{ url('/pendidikan') }}" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Pendidikan</a>
+        <a href="{{ url('/pengalaman') }}" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Pengalaman</a>
+        <a href="{{ url('/keahlian') }}" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Keahlian</a>
     </div>
 
-    <!-- [PERBAIKAN BACKGROUND] Konten Utama (z-0, Latar Belakang) -->
+    <!-- Konten Utama (z-0, Latar Belakang) -->
     <!-- 'bg-black' ditambahkan di sini untuk menutupi semua section -->
     <main class="relative z-0 bg-black">
         @yield('content')
@@ -63,7 +63,7 @@
 
 
     <!-- Pre-Footer Social Marquee -->
-    <!-- [PERBAIKAN BACKGROUND] 'bg-black' dihapus dari sini -->
+    <!-- 'bg-black' dihapus dari sini -->
     <section class="relative z-20 w-full py-12 md:py-20 overflow-hidden group">
         <!-- Wrapper 'flex' untuk animasi marquee -->
         <!-- Ini menggunakan 'pause-on-hover' (berhenti total) -->
@@ -72,48 +72,43 @@
             <!-- Blok Konten 1 -->
             <div class="flex-shrink-0 flex items-center justify-around w-full min-w-full">
                 <!-- Ganti '#' dengan URL sosmed Anda -->
-                <a href="https://www.instagram.com/qrannf/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">INS</a>
+                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">INS</a>
                 
-                <!-- [PERBAIKAN EMOJI] Emoji '✨' diganti dengan titik (dot) -->
+                <!-- Emoji '✨' diganti dengan titik (dot) -->
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="https://x.com/qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">X</a>
+                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">X</a>
                 
-                <!-- [PERBAIKAN EMOJI] -->
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="https://www.linkedin.com/in/syaqiran/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">LIN</a>
+                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">LIN</a>
                 
-                <!-- [PERBAIKAN EMOJI] -->
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="https://github.com/Qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">GIT</a>
+                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">GIT</a>
             </div>
 
             <!-- Blok Konten 2 (Kopi identik, 'aria-hidden' untuk loop) -->
             <div class="flex-shrink-0 flex items-center justify-around w-full min-w-full" aria-hidden="true">
-                <a href="https://www.instagram.com/qrannf/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">INS</a>
+                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">INS</a>
                 
-                <!-- [PERBAIKAN EMOJI] -->
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="https://x.com/qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">X</a>
+                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">X</a>
                 
-                <!-- [PERBAIKAN EMOJI] -->
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="https://www.linkedin.com/in/syaqiran/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">LIN</a>
+                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">LIN</a>
                 
-                <!-- [PERBAIKAN EMOJI] -->
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="https://github.com/Qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">GIT</a>
+                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">GIT</a>
             </div>
         </div>
     </section>
 
     <!-- Footer (z-20) -->
-    <!-- [PERBAIKAN BACKGROUND] 'bg-black' dihapus, border tetap ada -->
+    <!-- 'bg-black' dihapus, border tetap ada -->
     <footer class="relative z-20 text-center text-gray-500 py-6 border-t border-gray-800">
         <p>© {{ date('Y') }} {{ $biodata->nama }}. All rights reserved.</p>
     </footer>
@@ -125,8 +120,6 @@
     </button>
 
     <script>
-    // Seluruh JavaScript (Menu, Scroll, Parallax, Animasi Nama, Partikel)
-    // tetap sama persis dan tidak perlu diubah.
     document.addEventListener("DOMContentLoaded", () => {
 
         // === MENU TOGGLE ===
@@ -175,7 +168,8 @@
         // === ANIMASI NAMA (CASCADE/NGETIK) ===
         const nameElement = document.getElementById('hero-name-anim');
         if (nameElement) {
-            const text = nameElement.dataset.text || nameElement.innerText; 
+            // [PERBAIKAN] Selalu baca dari 'data-text' untuk keamanan
+            const text = nameElement.dataset.text; 
             
             if (text) {
                 nameElement.innerHTML = '';

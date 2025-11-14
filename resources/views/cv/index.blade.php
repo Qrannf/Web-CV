@@ -20,7 +20,7 @@
         <div id="profile-img-anim"
              class="w-44 h-44 rounded-full overflow-hidden transition-transform duration-300 ease-out will-change-transform">
             
-            <img src="{{ asset('storage/' . $biodata->profile_image) }}" 
+            <img src="{{ asset('images/' . $biodata->profile_image) }}" 
                  alt="Foto Profil" 
                  class="w-full h-full object-cover">
         </div>
