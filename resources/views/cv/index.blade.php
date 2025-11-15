@@ -7,12 +7,9 @@
  HERO SECTION
 =================================================
 --}}
-<!-- Section ini ada di 'z-0' (dari <main>) dan menjadi Latar Belakang -->
 <section id="hero"
-    class="min-h-screen flex flex-col justify-center items-center text-center relative overflow-hidden bg-[#121212] select-none">
+    class="min-h-screen flex flex-col justify-center items-center text-center relative overflow-hidden bg-[black] select-none">
     
-    {{-- FOTO PROFIL DI ATAS --}}
-    <!-- [PERBAIKAN] Konten dinaikkan ke 'z-20' (di atas canvas z-10) -->
     <div id="profile-img-anim-wrapper" 
          class="relative z-20 mb-6 animate-pop-in opacity-0" 
          style="animation-delay: 200ms">
@@ -26,17 +23,12 @@
         </div>
     </div>
 
-
-    {{-- NAMA BESAR --}}
-    <!-- [PERBAIKAN] Konten dinaikkan ke 'z-20' (di atas canvas z-10) -->
     <h1 id="hero-name-anim" 
         data-text="{{ strtoupper($biodata->nama) }}" 
         class="relative z-20 text-4xl sm:text-6xl lg:text-7xl whitespace-nowrap font-extrabold text-[#e9ff00] leading-none tracking-tight px-8 text-center max-w-5xl mx-auto">
         {{ strtoupper($biodata->nama) }}
     </h1>
 
-    {{-- INFORMASI KONTAK DI BAWAH HERO --}}
-    <!-- [PERBAIKAN] Konten dinaikkan ke 'z-20' (di atas canvas z-10) -->
     <div id="contact-info-anim" class="absolute bottom-24 left-0 right-0 z-20 px-6">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 text-center text-gray-400 text-sm">
             
@@ -74,8 +66,7 @@
  ABOUT SECTION
 =================================================
 --}}
-<!-- Section ini ada di 'z-0' (Latar Belakang) -->
-<section id="about" class="py-24 bg-black text-center overflow-hidden" data-aos="fade-up">
+<section id="about" class="py-24 bg-zinc-950 text-center overflow-hidden" data-aos="fade-up">
     <!-- [PERBAIKAN] Wrapper konten dinaikkan ke 'z-20' -->
     <div class="max-w-3xl mx-auto px-6 relative z-20">
         <h2 class="text-3xl font-bold text-[#e9ff00] mb-6 uppercase">Tentang</h2>
@@ -88,9 +79,7 @@
  PENDIDIKAN SECTION
 =================================================
 --}}
-<!-- Section ini ada di 'z-0' (Latar Belakang) -->
-<section id="pendidikan" class="py-24 bg-zinc-950 text-center overflow-hidden" data-aos="fade-up">
-    <!-- [PERBAIKAN] Wrapper konten dinaikkan ke 'z-20' -->
+<section id="pendidikan" class="py-24 bg-black text-center overflow-hidden" data-aos="fade-up">
     <div class="relative z-20">
         <h2 class="text-3xl font-bold text-[#e9ff00] mb-10 uppercase">Pendidikan</h2>
         <div class="max-w-3xl mx-auto space-y-6 px-6">
@@ -110,9 +99,7 @@
  PENGALAMAN SECTION
 =================================================
 --}}
-<!-- Section ini ada di 'z-0' (Latar Belakang) -->
-<section id="pengalaman" class="py-24 bg-black text-center overflow-hidden" data-aos="fade-up">
-    <!-- [PERBAIKAN] Wrapper konten dinaikkan ke 'z-20' -->
+<section id="pengalaman" class="py-24 bg-zinc-950 text-center overflow-hidden" data-aos="fade-up">
     <div class="relative z-20">
         <h2 class="text-3xl font-bold text-[#e9ff00] mb-10 uppercase">Pengalaman</h2>
         <div class="max-w-3xl mx-auto space-y-6 px-6">
@@ -132,9 +119,7 @@
  KEAHLIAN SECTION
 =================================================
 --}}
-<!-- Section ini ada di 'z-0' (Latar Belakang) -->
-<section id="keahlian" class="py-24 bg-zinc-950 text-center overflow-hidden" data-aos="fade-up">
-    <!-- [PERBAIKAN] Wrapper konten dinaikkan ke 'z-20' -->
+<section id="keahlian" class="py-24 bg-black text-center overflow-hidden" data-aos="fade-up">
     <div class="relative z-20">
         <h2 class="text-3xl font-bold text-[#e9ff00] mb-10 uppercase">Keahlian</h2>
         <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">

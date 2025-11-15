@@ -4,11 +4,10 @@
 
 {{--
 =================================================
- KEAHLIAN SECTION (HALAMAN PENUH)
+ KEAHLIAN SECTION 
 =================================================
 --}}
 <section id="keahlian" class="min-h-screen pt-32 pb-24 bg-zinc-950 text-center overflow-hidden" data-aos="fade-up">
-    <!-- Wrapper konten 'z-20' -->
     <div class="relative z-20">
         <h2 class="text-4xl sm:text-5xl font-bold text-[#e9ff00] mb-12 uppercase">Keahlian</h2>
         

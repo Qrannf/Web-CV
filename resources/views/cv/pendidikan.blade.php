@@ -7,14 +7,8 @@
  PENDIDIKAN SECTION (HALAMAN PENUH)
 =================================================
 --}}
-<!-- 
-  'min-h-screen' memastikan halaman mengisi layar.
-  'pt-32' (padding-top) memberi ruang di bawah header fixed.
--->
 <section id="pendidikan" class="min-h-screen pt-32 pb-24 bg-zinc-950 text-center overflow-hidden" data-aos="fade-up">
-    <!-- Wrapper konten 'z-20' -->
     <div class="relative z-20">
-        <!-- Judul halaman dibuat lebih besar -->
         <h2 class="text-4xl sm:text-5xl font-bold text-[#e9ff00] mb-12 uppercase">Pendidikan</h2>
         
         <div class="max-w-3xl mx-auto space-y-6 px-6">

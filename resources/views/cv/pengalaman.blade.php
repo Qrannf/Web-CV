@@ -8,7 +8,6 @@
 =================================================
 --}}
 <section id="pengalaman" class="min-h-screen pt-32 pb-24 bg-black text-center overflow-hidden" data-aos="fade-up">
-    <!-- Wrapper konten 'z-20' -->
     <div class="relative z-20">
         <h2 class="text-4xl sm:text-5xl font-bold text-[#e9ff00] mb-12 uppercase">Pengalaman</h2>
         

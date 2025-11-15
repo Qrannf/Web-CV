@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #121212;
+            background-color: #000000;
             color: #fff;
         }
     </style>
@@ -36,9 +36,7 @@
         </button>
     </div>
 
-    {{-- Elemen Kosong (Kanan, untuk alignment) --}}
     <div class="w-8 h-8">
-        {{-- Ini adalah "spacer" seukuran tombol hamburger (w-8) --}}
     </div>
 </header>
 
@@ -47,7 +45,6 @@
     <div id="overlayMenu" 
          class="fixed inset-0 bg-gray-950/95 flex flex-col justify-center pl-16 space-y-4 text-4xl font-extrabold uppercase tracking-wide transform -translate-x-full transition-transform duration-500 z-40">
         
-        <!-- [PERUBAHAN] Tautan menu diubah ke URL absolut -->
         <a href="{{ url('/') }}" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Home</a>
         <a href="{{ url('/#about') }}" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Tentang</a>
         <a href="{{ url('/pendidikan') }}" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Pendidikan</a>
@@ -56,60 +53,52 @@
     </div>
 
     <!-- Konten Utama (z-0, Latar Belakang) -->
-    <!-- 'bg-black' ditambahkan di sini untuk menutupi semua section -->
     <main class="relative z-0 bg-black">
         @yield('content')
     </main>
 
 
     <!-- Pre-Footer Social Marquee -->
-    <!-- 'bg-black' dihapus dari sini -->
     <section class="relative z-20 w-full py-12 md:py-20 overflow-hidden group">
-        <!-- Wrapper 'flex' untuk animasi marquee -->
-        <!-- Ini menggunakan 'pause-on-hover' (berhenti total) -->
         <div class="flex animate-[marquee_30s_linear_infinite] group-hover:[animation-play-state:paused]">
             
             <!-- Blok Konten 1 -->
             <div class="flex-shrink-0 flex items-center justify-around w-full min-w-full">
-                <!-- Ganti '#' dengan URL sosmed Anda -->
-                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">INS</a>
-                
-                <!-- Emoji '✨' diganti dengan titik (dot) -->
-                <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
-                
-                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">X</a>
+                <a href="https://www.instagram.com/qrannf/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">INS</a>
                 
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">LIN</a>
+                <a href="https://x.com/qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">X</a>
                 
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">GIT</a>
+                <a href="https://www.linkedin.com/in/syaqiran/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">LIN</a>
+                
+                <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
+                
+                <a href="https://github.com/Qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">GIT</a>
             </div>
 
-            <!-- Blok Konten 2 (Kopi identik, 'aria-hidden' untuk loop) -->
             <div class="flex-shrink-0 flex items-center justify-around w-full min-w-full" aria-hidden="true">
-                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">INS</a>
+                <a href="https://www.instagram.com/qrannf/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">INS</a>
                 
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">X</a>
+                <a href="https://x.com/qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">X</a>
                 
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">LIN</a>
+                <a href="https://www.linkedin.com/in/syaqiran/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">LIN</a>
                 
                 <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
                 
-                <a href="#" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">GIT</a>
+                <a href="https://github.com/Qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">GIT</a>
             </div>
         </div>
     </section>
 
     <!-- Footer (z-20) -->
-    <!-- 'bg-black' dihapus, border tetap ada -->
-    <footer class="relative z-20 text-center text-gray-500 py-6 border-t border-gray-800">
+    <footer class="relative z-20 text-center text-gray-500 py-6 border-t border-zinc-900">
         <p>© {{ date('Y') }} {{ $biodata->nama }}. All rights reserved.</p>
     </footer>
 
@@ -168,7 +157,6 @@
         // === ANIMASI NAMA (CASCADE/NGETIK) ===
         const nameElement = document.getElementById('hero-name-anim');
         if (nameElement) {
-            // [PERBAIKAN] Selalu baca dari 'data-text' untuk keamanan
             const text = nameElement.dataset.text; 
             
             if (text) {
@@ -189,7 +177,7 @@
             }
         }
 
-        // === [IDE 1] PARTICLE NETWORK ===
+        // ===  PARTICLE NETWORK ===
         const canvas = document.getElementById('particle-canvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
