@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <title>{{ $biodata->nama ?? 'Portfolio' }}</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -15,18 +15,39 @@
             color: #fff;
         }
     </style>
+    
+    <!-- Perbaikan Mobile (Marquee) -->
+    <style>
+        @media (max-width: 767px) {
+            .social-marquee a {
+                font-size: 3.75rem !important; 
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            .social-marquee .dot {
+                width: 0.5rem !important;
+                height: 0.5rem !important;
+            }
+        }
+    </style>
 </head>
 
 
-<body class="bg-gray-950 text-gray-200 font-sans scroll-smooth overflow-x-hidden">
+<body class="bg-black text-gray-200 font-sans scroll-smooth overflow-x-hidden">
 
 <!-- Canvas Partikel (z-10) -->
 <canvas id="particle-canvas" class="fixed top-0 left-0 w-full h-full z-10"></canvas>
 
 {{-- HAMBURGER HEADER (z-50) --}}
-<header class="fixed top-8 left-0 w-full px-12 z-50 flex items-center justify-between bg-transparent pointer-events-none">
+<header class="fixed top-8 left-0 w-full px-6 md:px-12 z-50 flex items-center justify-between bg-transparent pointer-events-none">
     
-    {{-- Tombol Hamburger (Kiri) --}}
+    {{-- [PERUBAHAN] Elemen Kosong (Sekarang di Kiri) --}}
+    <div class="w-8 h-8">
+        {{-- Ini adalah "spacer" seukuran tombol hamburger (w-8) --}}
+    </div>
+
+
+    {{-- [PERUBAHAN] Tombol Hamburger (Sekarang di Kanan) --}}
     <div class="flex items-center space-x-3 pointer-events-auto">
         <button id="menuToggle"
                 class="relative w-8 h-8 flex flex-col justify-between group focus:outline-none cursor-pointer">
@@ -35,15 +56,13 @@
             <span class="block h-0.5 bg-white transition-all duration-300 group-[.active]:-rotate-45 group-[.active]:-translate-y-3"></span>
         </button>
     </div>
-
-    <div class="w-8 h-8">
-    </div>
 </header>
 
 
     {{-- OVERLAY MENU (z-40) --}}
+    <!-- [PERUBAHAN] Diubah agar muncul dari kanan -->
     <div id="overlayMenu" 
-         class="fixed inset-0 bg-gray-950/95 flex flex-col justify-center pl-16 space-y-4 text-4xl font-extrabold uppercase tracking-wide transform -translate-x-full transition-transform duration-500 z-40">
+         class="fixed inset-0 bg-black/95 flex flex-col justify-center items-end pr-16 md:pr-24 space-y-4 text-4xl font-extrabold uppercase tracking-wide transform translate-x-full transition-transform duration-500 z-40">
         
         <a href="{{ url('/') }}" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Home</a>
         <a href="{{ url('/#about') }}" class="menu-link text-gray-400 hover:text-yellow-400 transition" onclick="closeMenu()">Tentang</a>
@@ -58,40 +77,29 @@
     </main>
 
 
-    <!-- Pre-Footer Social Marquee -->
-    <section class="relative z-20 w-full py-12 md:py-20 overflow-hidden group">
+    <!-- Pre-Footer Social Marquee (z-20) -->
+    <section class="relative z-20 w-full py-12 md:py-20 overflow-hidden group social-marquee">
         <div class="flex animate-[marquee_30s_linear_infinite] group-hover:[animation-play-state:paused]">
             
             <!-- Blok Konten 1 -->
             <div class="flex-shrink-0 flex items-center justify-around w-full min-w-full">
                 <a href="https://www.instagram.com/qrannf/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">INS</a>
-                
-                <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
-                
+                <span class="w-3 h-3 bg-zinc-700 rounded-full dot" aria-hidden="true"></span>
                 <a href="https://x.com/qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">X</a>
-                
-                <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
-                
+                <span class="w-3 h-3 bg-zinc-700 rounded-full dot" aria-hidden="true"></span>
                 <a href="https://www.linkedin.com/in/syaqiran/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">LIN</a>
-                
-                <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
-                
+                <span class="w-3 h-3 bg-zinc-700 rounded-full dot" aria-hidden="true"></span>
                 <a href="https://github.com/Qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">GIT</a>
             </div>
 
+            <!-- Blok Konten 2 (Kopi identik) -->
             <div class="flex-shrink-0 flex items-center justify-around w-full min-w-full" aria-hidden="true">
                 <a href="https://www.instagram.com/qrannf/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">INS</a>
-                
-                <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
-                
+                <span class="w-3 h-3 bg-zinc-700 rounded-full dot" aria-hidden="true"></span>
                 <a href="https://x.com/qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">X</a>
-                
-                <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
-                
+                <span class="w-3 h-3 bg-zinc-700 rounded-full dot" aria-hidden="true"></span>
                 <a href="https://www.linkedin.com/in/syaqiran/" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">LIN</a>
-                
-                <span class="w-3 h-3 bg-zinc-700 rounded-full" aria-hidden="true"></span>
-                
+                <span class="w-3 h-3 bg-zinc-700 rounded-full dot" aria-hidden="true"></span>
                 <a href="https://github.com/Qrannf" target="_blank" class="text-7xl md:text-9xl font-extrabold text-[#e9ff00] hover:text-white hover:line-through transition-all duration-300 px-8">GIT</a>
             </div>
         </div>
@@ -117,12 +125,14 @@
 
         menuBtn.addEventListener('click', () => {
             menuBtn.classList.toggle('active');
-            overlayMenu.classList.toggle('-translate-x-full');
+            // [PERUBAHAN] Mengubah kelas yang di-toggle
+            overlayMenu.classList.toggle('translate-x-full');
         });
 
         function closeMenu() {
             menuBtn.classList.remove('active'); 
-            overlayMenu.classList.add('-translate-x-full');
+            // [PERUBAHAN] Mengubah kelas yang di-add
+            overlayMenu.classList.add('translate-x-full');
         }
         window.closeMenu = closeMenu;
 
@@ -144,7 +154,7 @@
                 const y = e.clientY - top - height / 2;
                 const moveX = x / 25;
                 const moveY = y / 25;
-                profileImgWrapper.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+                profileImgWrapper.style.transform = `translate(${moveX}px, ${moveY}px)`;
             });
 
             hero.addEventListener('mouseleave', () => {
@@ -154,30 +164,60 @@
             console.warn('Elemen hero atau profile-img-anim-wrapper tidak ditemukan.');
         }
 
-        // === ANIMASI NAMA (CASCADE/NGETIK) ===
+        // === ANIMASI NAMA (CASCADE/NGETIK UNTUK 2 BARIS) ===
         const nameElement = document.getElementById('hero-name-anim');
         if (nameElement) {
-            const text = nameElement.dataset.text; 
+            const fullName = nameElement.dataset.text; 
+            const breakWord = "FADLILLAH"; 
             
-            if (text) {
-                nameElement.innerHTML = '';
-                nameElement.classList.add('animate-cascade-in'); 
+            let line1Text = fullName;
+            let line2Text = "";
 
-                let charDelay = 50; 
-                let totalDelay = 500; 
-
-                text.split('').forEach((char, index) => {
-                    const span = document.createElement('span');
-                    span.innerHTML = char === ' ' ? '&nbsp;' : char; 
-                    span.style.animationDelay = `${totalDelay + (index * charDelay)}ms`;
-                    nameElement.appendChild(span);
-                });
-            } else {
-                console.warn('Teks untuk animasi nama tidak ditemukan (data-text kosong).');
+            const breakIndex = fullName.indexOf(breakWord);
+            
+            if (breakIndex > -1) {
+                line1Text = fullName.substring(0, breakIndex); 
+                line2Text = fullName.substring(breakIndex);
             }
+
+            nameElement.innerHTML = ''; 
+            let charDelay = 50;
+            let totalDelay = 400; 
+
+            // --- Proses Baris 1 ---
+            const line1Span = document.createElement('span');
+            line1Span.className = 'block animate-cascade-in'; 
+            nameElement.appendChild(line1Span);
+
+            line1Text.split('').forEach((char, charIndex) => {
+                const span = document.createElement('span');
+                span.innerHTML = char === ' ' ? '&nbsp;' : char;
+                span.style.animationDelay = `${totalDelay + (charIndex * charDelay)}ms`;
+                line1Span.appendChild(span);
+            });
+
+            totalDelay += (line1Text.length * charDelay) + 100; 
+
+            // --- Proses Baris 2 (jika ada) ---
+            if (line2Text) {
+                const line2Span = document.createElement('span');
+                line2Span.className = 'block animate-cascade-in';
+                nameElement.appendChild(line2Span);
+
+                line2Text.split('').forEach((char, charIndex) => {
+                    const span = document.createElement('span');
+                    span.innerHTML = char === ' ' ? '&nbsp;' : char;
+                    span.style.animationDelay = `${totalDelay + (charIndex * charDelay)}ms`;
+                    line2Span.appendChild(span);
+                });
+            }
+        
+        } else {
+            console.warn("Elemen 'hero-name-anim' tidak ditemukan.");
         }
 
-        // ===  PARTICLE NETWORK ===
+
+        // === PARTICLE NETWORK ===
         const canvas = document.getElementById('particle-canvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
@@ -218,7 +258,7 @@
                     this.y += this.speedY;
                 }
                 draw() {
-                    ctx.fillStyle = `rgba(233, 255, 0, ${this.opacity})`; // Warna #e9ff00
+                    ctx.fillStyle = `rgba(233, 255, 0, ${this.opacity})`;
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
@@ -239,7 +279,6 @@
                 let mouseDist = 120; 
 
                 for (let a = 0; a < particles.length; a++) {
-                    // Interaksi dengan partikel lain
                     for (let b = a + 1; b < particles.length; b++) {
                         let dx = particles[a].x - particles[b].x;
                         let dy = particles[a].y - particles[b].y;
@@ -256,7 +295,6 @@
                         }
                     }
                     
-                    // Interaksi dengan mouse
                     if (mouse.x && mouse.y) {
                         let dx = particles[a].x - mouse.x;
                         let dy = particles[a].y - mouse.y;
